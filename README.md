@@ -5,10 +5,6 @@
 [![Discord](https://img.shields.io/badge/Discord-desirepro-7289DA?logo=discord&logoColor=white)](https://discord.com/users/379564899371581441)
 [![Telegram](https://img.shields.io/badge/Telegram-desirepro-26A5E4?logo=telegram&logoColor=white)](https://t.me/desirepro)
 
-<p align="center">
-  <img src="https://i.imgur.com/FJrfP8a.png" alt="Grass Hacker Logo" width="200">
-</p>
-
 <p align="center">Автоматический помощник для игры в траву в "The Last Meadow" на Discord.<br>Ускоряет развитие в несколько раз и снимает всю рутину!</p>
 
 <p align="center">
