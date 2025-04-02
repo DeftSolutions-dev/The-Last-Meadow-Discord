@@ -109,25 +109,31 @@
 
     function checkAndBuyShopItems() {
         if (!config.autoShopEnabled) return false;
-        
+    
         const pointsElement = document.querySelector('.pointsValue__7a0c3');
         if (!pointsElement) return false;
-        
+    
         const currentPoints = parseInt(pointsElement.textContent.replace(/[^\d]/g, ''));
         const shopItems = document.querySelectorAll('.primaryShop__7a0c3 .clickerButton_e9638b');
-        
+    
         for (const item of shopItems) {
+      
+            const itemIcon = item.querySelector('.itemIcon__4b373');
+            if (itemIcon && itemIcon.src.includes('96bd2598fac6410c.svg')) {
+                continue;
+            }
+        
             const priceElement = item.querySelector('.text__73a39');
             if (!priceElement) continue;
-            
+        
             const price = parseInt(priceElement.textContent.replace(/[^\d]/g, ''));
-            
+        
             if (!isNaN(price) && currentPoints >= price) {
                 item.classList.remove('disabled_e9638b');
                 item.classList.add('enabled_e9638b');
                 item.style.pointerEvents = 'auto';
                 item.style.opacity = '1';
-                
+            
                 const event = new MouseEvent('click', {
                     view: window,
                     bubbles: true,
@@ -135,7 +141,7 @@
                 });
                 item.dispatchEvent(event);
                 stats.shopItemsBought++;
-                
+            
                 setTimeout(() => {
                     const pointsAfter = document.querySelector('.pointsValue__7a0c3');
                     if (pointsAfter) {
@@ -143,11 +149,11 @@
                         stats.pointsEarned = Math.max(stats.pointsEarned, pointsValue);
                     }
                 }, 100);
-                
+            
                 return true;
             }
         }
-        
+    
         return false;
     }
 
